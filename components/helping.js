@@ -13,4 +13,9 @@ const LoadingFullScreen = () => {
   );
 };
 
+const Button = ({text, onPressed, style}) => {
+  return <div style={style} className={styles.button} onClick={onPressed}>{ text}</div>
+} 
+
 export default LoadingFullScreen;
+export {Button}

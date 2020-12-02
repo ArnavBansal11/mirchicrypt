@@ -39,4 +39,24 @@
     from { transform: translateY(0) }
     to { transform: translateY(-40px) }
   }
+
+  .button{
+    height: 50px;
+    font-family: 'Fira Code';
+    border: none;
+    background-color: var(--button-color);
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease;
+    cursor: pointer;
+
+
+    &:hover{
+      background-color: var(--button-color-hover);
+    }
+  } 
   
