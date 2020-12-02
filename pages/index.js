@@ -43,7 +43,7 @@ const HomePage = ({ loggedIn }) => {
           <Button
             text="Sign in with Discord"
             style={{ width: "300px" }}
-            onPressed={() => signIn("discord")}
+            onPressed={() => signIn("discord",{callbackUrl: "https://mirchicrypt.arnavb.com"})}
           />
         )}
       </div>
