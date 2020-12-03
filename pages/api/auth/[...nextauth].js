@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default (req, res) =>
   NextAuth(req, res, {
+    site: process.env.nextauth_url,
     providers: [
       Providers.Discord({
         clientId: "783612696930418699",
