@@ -1,8 +1,10 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import axios from "axios";
+import connect from "../../../utils/dbConnect";
+import User from "../../../models/user";
 
-export default (req, res) =>
+const login = (req, res) =>
   NextAuth(req, res, {
     providers: [
       Providers.Discord({
@@ -13,17 +15,39 @@ export default (req, res) =>
     ],
 
     callbacks: {
-      signIn: async (_user, _account, _profile) => {
-        axios
-          .post("http://mirchicrypt.herokuapp.com/auth/login", {
-            user: _user,
-            account: _account,
-            profile: _profile,
+      signIn: async (_user, account, profile) => {
+        const user = await User.findOne({ email: profile.email });
+
+        if (user) {
+          return Promise.resolve(true);
+        } else {
+          User.create({
+            username: profile.username + "#" + profile.discriminator,
+            email: profile.email,
           })
-          .then((res) => {
-            return Promise.resolve(true);
-          })
-          .catch((ex) => Promise.resolve(false));
+            .then(async (result) => {
+              const joined = await axios.put(
+                `https://discord.com/api/guilds/783679122819514378/members/${profile.id}`,
+                { access_token: account.accessToken },
+                {
+                  headers: {
+                    Authorization: `Bot ${process.env.BOT_TOKEN}`,
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              return Promise.resolve(true);
+            })
+            .catch((err) => {
+              console.log(err.message)
+              return Promise.resolve(false);
+            });
+        }
       },
     },
+    jwt: {
+      signingKey: process.env.JWT_KEY,
+    },
   });
+
+export default connect(login);
