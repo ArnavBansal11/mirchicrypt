@@ -1,11 +1,12 @@
-@import './colors.scss';
+@import "./colors.scss";
+@import "https://fonts.googleapis.com/css2?family=FiraCode:wght@400;500;600;700;800&display=swap";
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Fira Code",-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Fira Code", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #131212;
   color: #ffffff;
 }
