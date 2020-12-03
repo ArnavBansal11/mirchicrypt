@@ -48,6 +48,9 @@ const login = (req, res) =>
     jwt: {
       signingKey: process.env.JWT_KEY,
     },
+    session: {
+      maxAge: 60 * 60 * 24 * 5
+    }
   });
 
 export default connect(login);
