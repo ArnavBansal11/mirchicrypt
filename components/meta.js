@@ -15,7 +15,7 @@ const Meta = ({ children }) => {
 					content="width=device-width, initial-scale=1"
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=FiraCode:wght@400;500;600;700;800&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700;800&display=swap"
 					rel="stylesheet"
 				/>
 			</Head>
