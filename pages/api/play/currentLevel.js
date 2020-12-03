@@ -4,7 +4,6 @@ import User from "../../../models/user";
 import Level from "../../../models/level";
 
 const handler = async (req, res) => {
-  console.log(req.headers)
   if (req.method != "GET") {
     return res.json({ error: "METHOD NOT DEFINED FOR THIS ROUTE" });
   }

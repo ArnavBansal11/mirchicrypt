@@ -2,6 +2,8 @@ import LoadingFullScreen, { Button } from "../components/helping";
 import { signIn, signOut, useSession } from "next-auth/client";
 import styles from "../styles/home.scss";
 import { useRouter } from "next/router";
+import Nav, { SideDrawer, Backdrop } from "../components/nav";
+import { useState } from "react";
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -17,10 +19,22 @@ export default function Home() {
 
 const HomePage = ({ loggedIn }) => {
   const router = useRouter();
+  const [sideBarOpen, setSideBarOpen] = useState(false);
 
   return (
     <div className={styles.main}>
-      <h1 className={styles.main__nav}>MirchiCrypt 1.0</h1>
+      {!loggedIn && <h1 className={styles.main__nav}>MirchiCrypt 1.0</h1>}
+      {loggedIn && (
+        <div>
+          <Nav setSideBarOpen={setSideBarOpen} />{" "}
+          <SideDrawer show={sideBarOpen} />
+          {sideBarOpen ? (
+            <>
+              <Backdrop setSideBarOpen={setSideBarOpen} />
+            </>
+          ) : null}
+        </div>
+      )}
       <div className={styles.main__body}>
         <img src="/espice.png" />
         <p>
