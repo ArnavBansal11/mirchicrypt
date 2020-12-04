@@ -17,14 +17,17 @@ const handler = async (req, res) => {
   const user = await User.findOne({ email: session.user.email });
 
   if (!user) {
-    res.json({ success: false, message: "An error occured" });
+    return res.json({
+      success: false,
+      message: "An error occured. Please contact the admins",
+    });
   }
 
   if (user.disqualified) {
-    res.json({ success: false, message: "You are Disqualified" });
+    return res.json({ success: false, message: "You are Disqualified" });
   }
 
-  if (user.currentLevel > 10) {
+  if (user.currentLevel > 1) {
     return res.json({
       success: false,
       message: "Congrats! You have completed the hunt",

@@ -13,5 +13,9 @@ const Button = ({text, onPressed, style}) => {
   return <div style={style} className={styles.button} onClick={onPressed}>{ text}</div>
 } 
 
+const CircleProgress = ({ style }) => {
+  return <div className={styles.loaderCircle} style={style}>Loading...</div>
+}
+
 export default LoadingFullScreen;
-export {Button}
+export {Button, CircleProgress}

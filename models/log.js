@@ -13,6 +13,9 @@ const logSchema = mongoose.Schema({
     attempt: {
         type: String,
         required: [true, "ye bhi nahi bataoge attemp kya kiya...."]
+    },
+    time: {
+        type: String
     }
 })
 
