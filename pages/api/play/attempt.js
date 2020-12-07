@@ -12,6 +12,16 @@ const handler = async (req, res) => {
     });
   }
 
+  const startDate = new Date("December 25, 2020 11:59:59");
+  const todayDate = Date.now();
+
+  if (startDate >= todayDate) {
+    return res.json({
+      success: false,
+      message: "The hunt will start on December 25, 2020 at 12:00 noon IST",
+    });
+  }
+
   const session = await getSession({ req });
 
   if (!session) {
