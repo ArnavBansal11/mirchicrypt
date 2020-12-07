@@ -9,7 +9,7 @@ const Meta = ({ children }) => {
 				<meta name="theme-color" content="#0779e4" />
 				<link rel="shortcut icon" href="" type="image/x-icon" />
 				<title>MirchiCrypt 1.0</title>
-				<link rel="icon" href="/espice.png" />
+				<link rel="icon" href="/favicon.jpg" />
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1"
