@@ -20,6 +20,10 @@ const contestantSchema = mongoose.Schema({
     solvedAt: {
         type: Date,
         default: Date.now
+    },
+    nonComp: {
+        type: Boolean,
+        default: false
     }
 })
 

@@ -8,6 +8,7 @@ const handler = async (req, res) => {
     return res.json({ error: "METHOD NOT DEFINED FOR THIS ROUTE" });
   }
 
+
   const startDate = new Date("December 25, 2020 11:59:59");
   const todayDate = Date.now();
 
