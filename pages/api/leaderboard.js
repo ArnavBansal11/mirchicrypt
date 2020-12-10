@@ -10,18 +10,22 @@ const leaderboard = async (req, res) => {
     });
   }
 
-  const session = await getSession({ req });
+  try {
+    const session = await getSession({ req });
 
-  if (!session) {
-    return res.json({ success: false, message: "You are not worthy" });
+    if (!session) {
+      return res.json({ success: false, message: "You are not worthy" });
+    }
+
+    const lb = await User.find({}).sort({
+      currentLevel: "descending",
+      solvedAt: "ascending",
+    });
+
+    return res.json({ success: true, lb: lb });
+  } catch (e) {
+    return res.json({success: false, message: "An error occured"})
   }
-
-  const lb = await User.find({}).sort({
-    currentLevel: "descending",
-    solvedAt: "ascending",
-  });
-    
-    return res.json({success: true, lb: lb})
 };
 
 export default connect(leaderboard);

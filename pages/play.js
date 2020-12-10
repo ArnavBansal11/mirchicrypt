@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/client";
 import { useState, useEffect } from "react";
-import LoadingFullScreen, { CircleProgress } from "../components/helping";
+import LoadingFullScreen from "../components/helping";
 import axios from "axios";
 import ErrorScreen from "../components/error";
 import Nav, { SideDrawer, Backdrop } from "../components/nav";
