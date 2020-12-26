@@ -8,8 +8,8 @@ const login = (req, res) =>
   NextAuth(req, res, {
     providers: [
       Providers.Discord({
-        clientId: "783612696930418699",
-        clientSecret: "e8GuLWFgpAVwGy4C53Po0o1Sn7md5aV0",
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
         scope: "identify email guilds.join",
       }),
     ],
